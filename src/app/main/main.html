@@ -1,9 +1,5 @@
 <div class="container">
 
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
-  </div>
-
   <div class="jumbotron text-center">
     <h1>The movieDb search!</h1>
     
@@ -21,7 +17,7 @@
         <img class="responsive" width="304" height="456" ng-src="{{awesomeThing.poster_path && 'https://image.tmdb.org/t/p/w500/' + awesomeThing.poster_path || 'assets/images/noposter.jpg'}}" title="{{awesomeThing.title}}" alt="{{awesomeThing.title}}">
         </div>
         <div class="panel-body">
-              <h3>{{ awesomeThing.title}}</h3>
+              <h2>{{ awesomeThing.title | uppercase }}</h2>
                   <div class="row">
                     <div class="col-sm-2"><h4>Popularity: </h4></div>
                     <div class="col-sm-8 col-sm-offset-2">
@@ -44,10 +40,11 @@
                     <div class="col-sm-2"><h4>Year: </h4></div>
                     <div class="col-sm-8 col-sm-offset-2">
                       <h4>{{ awesomeThing.release_date | date : "yyyy"}}</h4>
+
                   </div>
 
                   <div class="panel-body">
-                    
+                      <hr>
                       <p>{{ awesomeThing.overview | limitTo : 100 }}</p>
                     
                   </div>
