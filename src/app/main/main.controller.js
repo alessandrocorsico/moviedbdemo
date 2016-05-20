@@ -17,7 +17,7 @@
     activate();
 
     function activate() {
-      getWebDevTec();
+     // getWebDevTec();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
       }, 4000);
@@ -42,14 +42,12 @@
 
 
      $scope.$watch('searchText', function (val) {
-        /*if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
-
-        tempFilterText = val;
-        filterTextTimeout = $timeout(function() {
-            $scope.filterText = tempFilterText;
-        }, 250); // delay 250 ms*/
-      var response = webDevTec.movie(val);
+        
+     webDevTec.asyncSearch(val).then((function(res){
+      var response = res;
       vm.awesomeThings = response.results;
+     }).bind(vm));
+      
     })
 
   }
