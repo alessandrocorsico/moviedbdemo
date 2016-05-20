@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, $scope, webDevTec, toastr) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -35,5 +35,22 @@
         awesomeThing.rank = Math.random();
       });
     }
+
+    function getSearchbyValue(searchvalue){
+      vm.awesomeThings = webDevTec.movie(searchvalue);
+    }
+
+
+     $scope.$watch('searchText', function (val) {
+        /*if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
+
+        tempFilterText = val;
+        filterTextTimeout = $timeout(function() {
+            $scope.filterText = tempFilterText;
+        }, 250); // delay 250 ms*/
+      var response = webDevTec.movie(val);
+      vm.awesomeThings = response.results;
+    })
+
   }
 })();

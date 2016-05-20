@@ -69,6 +69,21 @@
     function getTec() {
       return data;
     }
+
+    this.movie = movie;
+
+    function movie(value) {
+      function successCB(response){
+        alert("Successo!");
+        return response;
+      }
+      function errorCB(response){
+        alert("Qualcosa è andato storto");
+        return null;
+      }
+      theMovieDb.search.getMovie({"query":encodeURI(value)}, successCB, errorCB)
+      
+    }
   }
 
 })();

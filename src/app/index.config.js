@@ -16,6 +16,8 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    theMovieDb.common.api_key = "9a1cf941f6d2b1459096f69745535605";
   }
 
 })();
